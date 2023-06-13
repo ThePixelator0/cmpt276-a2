@@ -7,11 +7,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table
+@Table(name="students")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long uid;
+    private int uid;
     private String name;
     private int weight;
     private int height;
@@ -28,11 +28,11 @@ public class Student {
         this.gpa = gpa;
     }
 
-    public Long getUid() {
+    public int getUid() {
         return uid;
     }
 
-    public void setUid(Long uid) {
+    public void setUid(int uid) {
         this.uid = uid;
     }
 
