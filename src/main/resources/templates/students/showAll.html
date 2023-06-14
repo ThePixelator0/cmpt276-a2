@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Students</title>
+    <style>
+        .students-container {
+            display: flex; 
+            flex-wrap: wrap;
+            justify-content:flex-start;
+            border: 1px dotted red;
+            height: 200px;
+        }
+        .student {
+            border: 1px solid black;
+            flex: 0 0 auto;
+            margin-bottom:0;
+            flex-grow: 1;
+            text-align: center;
+
+            display:flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .student > p {
+            padding: 0;
+            margin:0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Student Display</h2>
+    <div class="students-container">
+
+        <div th:each="student : ${students}">
+            <div class="student" th:style="'width:' + ${student.weight} + 'px; height:' + ${student.height} + 'px;'">
+                <p th:text="${student.name}" th:style="'color: ' + ${student.hairColor} + ';'"></p>
+                <p th:text="${student.gpa}"></p>
+            </div>
+        </div>
+    </div>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Weight</th>
+            <th>Height</th>
+            <th>Hair Color</th>
+            <th>GPA</th>
+        </tr>
+        <tr th:each="student : ${students}">
+            <td th:text="${student.name}"></td>
+            <td th:text="${student.weight}"></td>
+            <td th:text="${student.height}"></td>
+            <td th:text="${student.hairColor}"></td>
+            <td th:text="${student.gpa}"></td>
+            <td>
+                <a th:href="@{'/students/edit/' + ${student.uid}}" class="edit-button">Edit</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

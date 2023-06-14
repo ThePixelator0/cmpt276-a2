@@ -44,7 +44,7 @@ public class Student {
         this.name = name;
     }
 
-    public int getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
@@ -52,7 +52,7 @@ public class Student {
         this.weight = weight;
     }
 
-    public int getHeight() {
+    public Integer getHeight() {
         return height;
     }
 
@@ -68,7 +68,7 @@ public class Student {
         this.hairColor = hairColor;
     }
 
-    public double getGpa() {
+    public Double getGpa() {
         return gpa;
     }
 

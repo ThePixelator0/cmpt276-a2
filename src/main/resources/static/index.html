@@ -2,26 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add Student</title>
 </head>
 <body>
     <div>
         <h2>Add Student</h2>
 
-        <form action="/students/addStudent" method="POST"><label for="name">Name:</label><br>
+        <form action="/students/add" method="POST">
+            <label for="name">Name:</label><br>
             <input type="text" id="name" name="name" required><br>
             <label for="weight">Weight:</label><br>
-            <input type="number" id="weight" name="weight" required><br>
+            <input type="number" id="weight" min="40" max="200" name="weight" required><br>
             <label for="height">Height:</label><br>
-            <input type="number" id="height" name="height" required><br>
+            <input type="number" id="height" min="40" max="200" name="height" required><br>
             <label for="hairColor">Hair Color:</label><br>
-            <input type="text" id="hairColor" name="hairColor" required><br>
+            <input type="color" id="haircolor" name="haircolor" required><br>
             <label for="gpa">GPA:</label><br>
-            <input type="number" id="gpa" name="gpa" required><br>
+            <input type="number" id="gpa" name="gpa" required min="0" max="4" step="0.01"><br>
             <input type="submit" value="Submit">
         </form>
+
+        <div>
+            <h2>Navigate</h2>
+            <a href="/students/view">View all students</a><br>
+            <a href="/students/update">Update student details</a>
+        </div>
     </div>
 </body>
 </html>
