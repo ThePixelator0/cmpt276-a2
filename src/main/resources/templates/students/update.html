@@ -27,9 +27,14 @@
         <label for="gpa">GPA:</label><br>
         <input type="number" step="0.01" id="gpa" name="gpa" th:value="${student.gpa}" required><br>
 
-        <input type="submit" value="Update">
-    </form>
+        <div>
 
-    <a href="/students/view">Cancel</a>
+            <input type="submit" value="Update">
+
+            <a th:href="'/students/delete/' + ${student.uid}">Delete</a>
+        </div>
+    </form>
+    <a href="/students/view" class="button">Cancel</a>
+
 </body>
 </html>

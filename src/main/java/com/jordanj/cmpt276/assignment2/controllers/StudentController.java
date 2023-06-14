@@ -84,6 +84,6 @@ public class StudentController {
         .orElseThrow(() -> new IllegalArgumentException("Invalid student Id:" + id));
         studentRepo.delete(student);
         model.addAttribute("students", studentRepo.findAll());
-        return "students/viewAll";
+        return "redirect:/students/view";
     }
 }

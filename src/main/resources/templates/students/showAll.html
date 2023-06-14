@@ -8,15 +8,15 @@
     <style>
         .students-container {
             display: flex; 
-            flex-wrap: wrap;
+            flex-wrap:nowrap;
             justify-content:flex-start;
-            border: 1px dotted red;
             height: 200px;
         }
         .student {
             border: 1px solid black;
+            border-radius: 10px;
             flex: 0 0 auto;
-            margin-bottom:0;
+            margin: 5px;
             flex-grow: 1;
             text-align: center;
 
@@ -24,9 +24,10 @@
             flex-direction: column;
             justify-content: flex-start;
         }
-        .student > p {
+        .student > * {
             padding: 0;
             margin:0;   
+            text-decoration: none;
         }
     </style>
     <link rel="stylesheet" type="text/css" href="../../style.css">
@@ -37,7 +38,7 @@
 
         <div th:each="student : ${students}">
             <div class="student" th:style="'width:' + ${student.weight} + 'px; height:' + ${student.height} + 'px;'">
-                <p th:text="${student.name}" th:style="'color: ' + ${student.hairColor} + ';'"></p>
+                <a th:href="'/students/edit/' + ${student.uid}" th:text="${student.name}" th:style="'color: ' + ${student.hairColor} + ';'"></a>
                 <p th:text="${student.gpa}"></p>
             </div>
         </div>
@@ -55,7 +56,7 @@
             <td th:text="${student.name}"></td>
             <td th:text="${student.weight}"></td>
             <td th:text="${student.height}"></td>
-            <td th:style="${'background-color: ' + student.hairColor} + ';border-radius:5px'"></td>
+            <td th:style="${'background-color: ' + student.hairColor}"></td>
             <td th:text="${student.gpa}"></td>
             <td>
                 <a th:href="@{'/students/edit/' + ${student.uid}}" class="edit-button">Edit</a>
@@ -63,6 +64,7 @@
         </tr>
     </table>
 
-    <a href="/">Add Student</a><br>
+    <br /><br />
+    <a href="/" class="button">Add Student</a><br>
 </body>
 </html>
